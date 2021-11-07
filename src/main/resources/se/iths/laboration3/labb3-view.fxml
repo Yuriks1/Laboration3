@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import se.iths.laboration3.ResizableCanvas?>
+<?import se.iths.laboration3.ShapeOption?>
+<?import java.net.URL?>
+
+<SplitPane styleClass="root" dividerPositions="0.10" orientation="VERTICAL" maxHeight="-Infinity" maxWidth="-Infinity"
+           minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="600.0"
+           fx:controller="se.iths.laboration3.Labb3Controller" xmlns:fx="http://javafx.com/fxml/1">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="91.0" prefWidth="440.0">
+        <ToolBar prefHeight="40.0" prefWidth="443.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                 AnchorPane.topAnchor="0.0" AnchorPane.rightAnchor="5.0">
+            <ComboBox fx:id="comboBox" value="Circle">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <ShapeOption fx:value="Circle"/>
+                        <ShapeOption fx:value="Square"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <ColorPicker fx:id="colorPicker" layoutX="7.0" layoutY="95.0"/>
+            <Text fx:id="sizeText" layoutX="35.0" layoutY="34.0" text="Size:"/>
+            <Slider fx:id="sizeSlider" showTickLabels="true" showTickMarks="true" />
+            <Button fx:id="undoButton" onAction="#undoButton" text="undo"/>
+            <Button fx:id="saveButton" onAction="#saveButton" text="Save" />
+            <Button fx:id="exitButton" onAction="#exitButton" text="Exit"/>
+        </ToolBar>
+    </AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="185.0" prefWidth="291.0">
+        <StackPane prefWidth="400" prefHeight="800" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                   AnchorPane.topAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <ResizableCanvas fx:id="canvas" onMouseClicked="#onCanvasClicked" />
+        </StackPane>
+    </AnchorPane>
+    <stylesheets>
+        <URL value="@stylesheet.css"/>
+    </stylesheets>
+</SplitPane>
